@@ -1,0 +1,235 @@
+%%*********************************************************
+%% Essa versão corresponde ao padrão CCPG 001/2015.
+%%
+%% Ela foi adaptada do trabalho anterior de várias pessoas,
+%% e mais detalhes podem ser encontrados abaixo.
+%% 
+%% Adriano Batista Prieto, 16 de outubro de 2015.
+%% adrianoprieto@yahoo.com.br
+%% *********************************************************
+%Modelos para a edição de dissertações e teses
+%
+%Modelo LaTeX segundo o formato especificado na Informação CCPG 002/2013.
+% http://www.prpg.unicamp.br/arqpdfnormas/infccpg002_2013.pdf
+%
+%Esse modelo para a edição de dissertações e teses foi adaptado da versão elaborada pelos alunos Daniel Guerreiro e Silva, Filipe Ieda Fazanaro e  Marcos Ricardo Covre da Faculdade de Engenharia Elétrica e de Computação
+%
+%http://www0.fee.unicamp.br/cpg/Modelos.html
+%
+%Modelo baseado no abntex2 disponível em https://code.google.com/p/abntex2/
+%
+%Instruções para instalação do abntex2 disponíveis em https://code.google.com/p/abntex2/wiki/Instalacao
+%
+%
+%%
+%% Faculdade de Tecnologia - Junho/2014.
+% ------------------------------------------------------------------------
+
+\input{preambulo}
+
+% ---- compila o índice  ----
+\makeindex
+\makenomenclature
+% ---
+
+% ---- Início do documento ----
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+% ---- ELEMENTOS PRÉ-TEXTUAIS ----
+\pretextual
+
+%\pagenumbering{roman}
+
+% 1. Capa
+\imprimircapa
+% ---
+
+% 2. Folha de Rosto. (o * indica que haverá a ficha catalográfica) ---
+\thispagestyle{empty}
+\imprimirfolhaderosto*
+% --
+
+% 3. Ficha catalográfica ---
+
+% A biblioteca da FT lhe fornecerá um PDF
+% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+% o conteúdo de implementação deste arquivo pelo comando abaixo:
+
+% --- Para a versão final, delete as linhas abaixo e insira a linha do \includepdf
+\thispagestyle{empty}
+ \begin{fichacatalografica}
+    \vspace*{\fill}
+    \begin{center}
+        \textsc{Inclua aqui o pdf com a ficha catalográfica fornecida.}
+    \end{center}
+    \vspace*{\fill}
+% --- --- ---
+    %\includepdf{./figs/ficha-catalografica.pdf}
+ \end{fichacatalografica}
+% ---
+
+
+% 4. Folha de aprovação ---
+
+% Após a aprovação do trabalho, substitua todo o conteúdo deste arquivo por uma
+% imagem da página assinada pela banca com o comando abaixo:
+
+% --- Na versão final, exclua essas linhas e insira o \includepdf
+\newpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+    \textsc{Inclua aqui a Folha de aprovação.}
+\end{center}
+\vspace*{\fill}
+\newpage
+% --- --- ---
+%\includepdf[pagecommand={\thispagestyle{plain}}]{./figs/folha-assinaturas.pdf}	
+\cleardoublepage
+
+% 5. Dedicatória ---
+\begin{dedicatoria}
+    \thispagestyle{empty}
+		\vspace*{\fill}
+    \centering
+    \noindent
+    \textit{Dedico esta tese à todo mundo.}
+    \vspace*{\fill}
+\end{dedicatoria}
+% ---
+
+% 6. Agradecimentos ---
+\begin{agradecimentos}
+    \thispagestyle{empty}
+    Agradecimentos aqui.
+\end{agradecimentos}
+
+% ---
+
+% --- Epígrafe  ---
+\begin{epigrafe}
+	\thispagestyle{empty}
+    \vspace*{\fill}
+	\begin{flushright}
+		\textit{``Escreva aqui a sua epígrafe''\\
+		(Citação)}
+	\end{flushright}
+\end{epigrafe}
+
+
+\thispagestyle{empty}
+\begin{resumo}
+			% 7. RESUMO em português
+     Colocar o resumos aqui.
+     
+    \vspace{\onelineskip}
+
+    \noindent\textbf{Palavras-chaves}: palavra-chave 1; palavra-chave 2; palavra-chave 3.
+
+    \vspace{\onelineskip}
+    \vspace{\onelineskip}
+		
+		% 8. Abstract (resumo traduzido para o inglês);
+    \begin{otherlanguage*}{english}
+    \begin{center}{\ABNTEXchapterfont\huge Abstract}\end{center}
+    
+    Put abstract here.
+    \vspace{\onelineskip}
+
+    \noindent\textbf{Keywords}: keyword 1; keyword 2; keyword 3.
+
+    \end{otherlanguage*}
+		
+		% 9. Resumo em uma terceira língua (opcional);
+		% \begin{otherlanguage*}{english} %% substitua o ``english'' pelo idioma desejado.
+    % \begin{center}{\ABNTEXchapterfont\huge Abstract}\end{center}
+    
+    % Put abstract here.
+    % \vspace{\onelineskip}
+
+    % \noindent\textbf{Keywords}: keyword 1; keyword 2; keyword 3.
+
+    % \end{otherlanguage*}
+		
+\end{resumo}
+
+% 10. Lista de ilustrações (opcional);
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\thispagestyle{empty}
+\cleardoublepage
+% ---
+
+% 11. Lista de Tabelas (opcional);
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\thispagestyle{empty}
+\cleardoublepage
+% ---
+
+% 12. Lista de Abreviaturas e Siglas (opcional);
+\renewcommand{\nomname}{Lista de Acrônimos e Abreviações}
+\pdfbookmark[0]{\nomname}{las}
+\printnomenclature
+\thispagestyle{empty}
+\cleardoublepage
+% ---
+
+% 13. Lista de Símbolos (opcional);
+
+% ---
+
+% 14. Sumário.
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\thispagestyle{empty}
+\cleardoublepage
+% ---
+
+% ---- ELEMENTOS TEXTUAIS ----
+\textual
+
+% ---- Capítulos ----
+\include{introducao}
+\include{capituloX}
+\include{capituloY}
+\include{capituloZ}
+
+
+% --- Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz ---
+\bookmarksetup{startatroot}%
+
+% ---- ELEMENTOS PóS-TEXTUAIS ----
+\postextual
+
+% ---- Referências bibliográficas ----
+\bibliography{tese}
+
+% ---- Apêndices ----
+\begin{apendicesenv}
+% Imprime uma página indicando o início dos apêndices
+\partapendices
+
+\include{apendiceA}
+\include{apendiceB}
+
+\end{apendicesenv}
+
+% ---- Anexos ----
+\begin{anexosenv}
+% Imprime uma página indicando o início dos anexos
+\partanexos
+
+\include{anexoA}
+\include{anexoB}
+
+\end{anexosenv}
+
+% ---- INDICE REMISSIVO ----
+\printindex
+
+\end{document} 

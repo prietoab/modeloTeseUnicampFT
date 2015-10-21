@@ -1,0 +1,142 @@
+%ARQUIVO DE PREAMBULO DA TESE - PACOTES E CONFIGURAÇÕES
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em verso e anverso. Oposto a oneside. twoside
+	a4paper, %letterpaper,		% tamanho do papel.
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	%french,			% idioma adicional para hifenização
+	%spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	sumario=tradicional,
+	]{abntex2}
+
+	% ---
+	% Pacotes fundamentais
+	% ---
+	\usepackage{cmap}				% Mapear caracteres especiais no PDF
+	\usepackage{lmodern}			% Usa a fonte Latin Modern		
+	\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+	%\usepackage[latin1]{inputenc}	% Codificacao do documento (conversão automática dos acentos) - funciona para codificação (enconding) ANSI
+	\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)  - funciona para codificação (enconding) UFT-8
+	\usepackage{lastpage}			% Usado pela Ficha catalográfica
+	\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+	\usepackage{color}				% Controle das cores
+	\usepackage[pdftex]{graphicx}	% Inclusão de gráficos
+	\usepackage{epstopdf}           % Pacote que converte as figuras em eps para pdf
+	% ---
+	\usepackage{hyphenat} % para deixar de fazer a hifenização em trechos específicos
+	% ---
+	% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+	% ---
+	\usepackage{nomencl}
+	\usepackage{amsmath}
+	\usepackage{bbm}
+	\usepackage[chapter]{algorithm}
+	\usepackage{algorithmic}
+	\usepackage{multirow}
+	\usepackage{rotating}
+	\usepackage{pdfpages}
+	% ---
+
+	% ---
+	% Pacotes de citações
+	% ---
+	%\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+	\usepackage[alf,abnt-etal-cite=2,abnt-etal-list=0,abnt-etal-text=emph]{abntex2cite}	% Citações padrão ABNT
+
+	% ---
+	% Pacote de customização - Unicamp
+	% ---
+	\usepackage{unicamp}
+	
+	% ---
+	% CONFIGURAçõES DE PACOTES
+	% ---
+
+	% ---
+	% Configurações do pacote backref
+	% Usado sem a opção hyperpageref de backref
+
+	%customização do negrito em ambientes matemáticos
+	\newcommand{\mb}[1]{\mathbf{#1}}
+
+	%customização de teoremas
+	\newtheorem{mydef}{Definição}[chapter]
+	\newtheorem{lemm}{Lema}[chapter]
+	\newtheorem{theorem}{Teorema}[chapter]
+	\floatname{algorithm}{Pseudoc\'{o}digo}
+	\renewcommand{\listalgorithmname}{Lista de Pseudoc\'{o}digos}
+
+	% Para mudar fonte dos títulos de capítulos, de secões, etc  para padrão Latex (fonte cmr) descomente a linha a seguir. 
+	%\renewcommand{\ABNTEXchapterfont}{\fontfamily{cmr}\fontseries{b}\selectfont}
+
+	% ---
+	% Configurações de aparência do PDF final
+
+	% alterando o aspecto da cor azul
+	\definecolor{blue}{RGB}{41,5,195}
+
+
+
+	% informações do PDF
+	\makeatletter
+	\hypersetup{
+				%pagebackref=true,
+			pdftitle={}, %\@title},
+			pdfauthor={\@author},
+				pdfsubject={\imprimirpreambulo},
+				pdfcreator={LaTeX com abnTeX2},
+			pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acad\^{e}mico},
+			%hidelinks,					% desabilita as bordas dos links
+			colorlinks=true,       	    % false: boxed links; true: colored links
+			% aqui vc pode trocar a cor dos links do sumário, lista de figs, etc.
+				linkcolor=red,          	% color of internal links
+				citecolor=blue,        		% color of links to bibliography
+				filecolor=magenta,      	% color of file links
+			urlcolor=blue,
+	%		linkbordercolor={1 1 1},	% set to white
+			bookmarksdepth=4
+	}
+	\makeatother
+	% ---
+
+	% ---
+	% Espaçamentos entre linhas e parágrafos
+	% ---
+
+	% O tamanho do parágrafo é dado por:
+	\setlength{\parindent}{2.0cm}
+
+	% Controle do espaçamento entre um parágrafo e outro:
+	\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+	% ---
+	% Informacoes de dados para CAPA e FOLHA DE ROSTO
+	% ---
+	\titulo{Título da Dissertação/Tese}
+	\autor{Auto da Dissertação/Tese (você, no caso)}
+	\local{Cidade}
+	\data{2015}
+	\orientador{Prof. Dr. Orientador}
+	\coorientador[Co-orientador]{Prof. Dr. Co-orientador}
+	\instituicao{
+			UNIVERSIDADE ESTADUAL DE CAMPINAS
+			\par
+			Faculdade de Tecnologia
+			}
+
+	%\tipotrabalho{Doutorado}	
+	%\preambulo{ Dissertação/Tese apresentada à Faculdade/Instituto da Universidade Estadual de Campinas como parte dos requisitos exigidos para a obtenção do título de Mestre(a)/Doutor(a) em <NOME DO TÍTULO>, na Àrea de <NOME DA ÁREA> (para teses/dissetações redigidas em português)}
+
+	\tipotrabalho{Dissertação (Mestrado)}
+	\preambulo{ \textit{\nohyphens{Dissertação apresentada à Faculdade de Tecnologia da Universidade Estadual de Campinas como parte dos requisitos exigidos para a obtenção do título de Mestre em Tecnologia, na área de Tecnologia e Inovação.}}}
+	% ---
